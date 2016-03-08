@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :teams
+  resources :matches
+  resources :performances
+root 'static_pages#index'
+
+resources :performances
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

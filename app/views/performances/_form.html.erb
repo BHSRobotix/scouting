@@ -1,0 +1,89 @@
+<%= form_for(@performance) do |f| %>
+  <% if @performance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@performance.errors.count, "error") %> prohibited this performance from being saved:</h2>
+
+      <ul>
+      <% @performance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :team_id %><br>
+    <%= f.text_field :team_id %>
+  </div>
+  <div class="field">
+    <%= f.label :match_id %><br>
+    <%= f.text_field :match_id %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_reach %><br>
+    <%= f.check_box :auto_reach %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_cross %><br>
+    <%= f.check_box :auto_cross %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_defenses_crossed %><br>
+    <%= f.text_area :auto_defenses_crossed %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_shoot %><br>
+    <%= f.check_box :auto_shoot %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_shoot_high %><br>
+    <%= f.check_box :auto_shoot_high %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_shoot_high_successful %><br>
+    <%= f.check_box :auto_shoot_high_successful %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_shoot_low %><br>
+    <%= f.check_box :auto_shoot_low %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_shoot_low_successful %><br>
+    <%= f.check_box :auto_shoot_low_successful %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_defenses_crossed %><br>
+    <%= f.text_area :tele_defenses_crossed %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_time_taken %><br>
+    <%= f.text_field :tele_time_taken %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_high_missed %><br>
+    <%= f.number_field :tele_high_missed %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_high_scored %><br>
+    <%= f.number_field :tele_high_scored %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_low_missed %><br>
+    <%= f.number_field :tele_low_missed %>
+  </div>
+  <div class="field">
+    <%= f.label :tele_low_scored %><br>
+    <%= f.number_field :tele_low_scored %>
+  </div>
+  <div class="field">
+    <%= f.label :challenged %><br>
+    <%= f.check_box :challenged %>
+  </div>
+  <div class="field">
+    <%= f.label :scaled %><br>
+    <%= f.check_box :scaled %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

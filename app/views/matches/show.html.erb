@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event key:</strong>
+  <%= @match.event_key %>
+</p>
+
+<p>
+  <strong>Comp level:</strong>
+  <%= @match.comp_level %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @match.number %>
+</p>
+
+<p>
+  <strong>Alliances:</strong>
+  <%= @match.alliances %>
+</p>
+
+<p>
+  <strong>Score breakdown:</strong>
+  <%= @match.score_breakdown %>
+</p>
+
+<p>
+  <strong>Videos:</strong>
+  <%= @match.videos %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @match.time %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>

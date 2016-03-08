@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Browse Matches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th class="blue"> Blue Alliance </th>
+      <th class="red"> Red Alliance </th>
+      <th> Score </th>
+      <th>Time</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.number %></td>
+        <td class="blue">
+          <% blueteam = "" %>
+          <% match.alliances["blue"]["teams"].each do |team| %>
+            <% blueteam += team[3..-1] + ", " %>
+          <% end %> 
+          <%= blueteam[0..-3] %>
+        </td>
+        <td class="red">
+          <% redteam = "" %>
+          <% match.alliances["red"]["teams"].each do |team| %>
+            <% redteam += team[3..-1] + ", " %>
+          <% end %> 
+          <%= redteam[0..-3] %>
+        </td>
+        <td class="green">
+          <!-- todo: bold the winner !-->
+          <span class="blue"><%= match.alliances["blue"]["score"] %></span>:<span class="red"><%= match.alliances["red"]["score"] %></span>
+        </td>
+        <td><%= match.time.strftime("%a %I:%M %p") %></td>
+        <td><%= link_to 'Show', match %></td>
+        <td><%= link_to 'Edit', edit_match_path(match) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Match', new_match_path %>

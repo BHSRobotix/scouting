@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_key: MyString
+  comp_level: MyString
+  number: 1
+  alliances: MyText
+  score_breakdown: MyText
+  videos: MyText
+  time: 2016-03-08 17:25:36
+
+two:
+  event_key: MyString
+  comp_level: MyString
+  number: 1
+  alliances: MyText
+  score_breakdown: MyText
+  videos: MyText
+  time: 2016-03-08 17:25:36

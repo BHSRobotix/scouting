@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Performances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Match</th>
+      <th>Auto reach</th>
+      <th>Auto cross</th>
+      <th>Auto defenses crossed</th>
+      <th>Auto shoot</th>
+      <th>Auto shoot high</th>
+      <th>Auto shoot high successful</th>
+      <th>Auto shoot low</th>
+      <th>Auto shoot low successful</th>
+      <th>Tele defenses crossed</th>
+      <th>Tele time taken</th>
+      <th>Tele high missed</th>
+      <th>Tele high scored</th>
+      <th>Tele low missed</th>
+      <th>Tele low scored</th>
+      <th>Challenged</th>
+      <th>Scaled</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @performances.each do |performance| %>
+      <tr>
+        <td><%= performance.team %></td>
+        <td><%= performance.match %></td>
+        <td><%= performance.auto_reach %></td>
+        <td><%= performance.auto_cross %></td>
+        <td><%= performance.auto_defenses_crossed %></td>
+        <td><%= performance.auto_shoot %></td>
+        <td><%= performance.auto_shoot_high %></td>
+        <td><%= performance.auto_shoot_high_successful %></td>
+        <td><%= performance.auto_shoot_low %></td>
+        <td><%= performance.auto_shoot_low_successful %></td>
+        <td><%= performance.tele_defenses_crossed %></td>
+        <td><%= performance.tele_time_taken %></td>
+        <td><%= performance.tele_high_missed %></td>
+        <td><%= performance.tele_high_scored %></td>
+        <td><%= performance.tele_low_missed %></td>
+        <td><%= performance.tele_low_scored %></td>
+        <td><%= performance.challenged %></td>
+        <td><%= performance.scaled %></td>
+        <td><%= link_to 'Show', performance %></td>
+        <td><%= link_to 'Edit', edit_performance_path(performance) %></td>
+        <td><%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Performance', new_performance_path %>

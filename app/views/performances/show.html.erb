@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @performance.team %>
+</p>
+
+<p>
+  <strong>Match:</strong>
+  <%= @performance.match %>
+</p>
+
+<p>
+  <strong>Auto reach:</strong>
+  <%= @performance.auto_reach %>
+</p>
+
+<p>
+  <strong>Auto cross:</strong>
+  <%= @performance.auto_cross %>
+</p>
+
+<p>
+  <strong>Auto defenses crossed:</strong>
+  <%= @performance.auto_defenses_crossed %>
+</p>
+
+<p>
+  <strong>Auto shoot:</strong>
+  <%= @performance.auto_shoot %>
+</p>
+
+<p>
+  <strong>Auto shoot high:</strong>
+  <%= @performance.auto_shoot_high %>
+</p>
+
+<p>
+  <strong>Auto shoot high successful:</strong>
+  <%= @performance.auto_shoot_high_successful %>
+</p>
+
+<p>
+  <strong>Auto shoot low:</strong>
+  <%= @performance.auto_shoot_low %>
+</p>
+
+<p>
+  <strong>Auto shoot low successful:</strong>
+  <%= @performance.auto_shoot_low_successful %>
+</p>
+
+<p>
+  <strong>Tele defenses crossed:</strong>
+  <%= @performance.tele_defenses_crossed %>
+</p>
+
+<p>
+  <strong>Tele time taken:</strong>
+  <%= @performance.tele_time_taken %>
+</p>
+
+<p>
+  <strong>Tele high missed:</strong>
+  <%= @performance.tele_high_missed %>
+</p>
+
+<p>
+  <strong>Tele high scored:</strong>
+  <%= @performance.tele_high_scored %>
+</p>
+
+<p>
+  <strong>Tele low missed:</strong>
+  <%= @performance.tele_low_missed %>
+</p>
+
+<p>
+  <strong>Tele low scored:</strong>
+  <%= @performance.tele_low_scored %>
+</p>
+
+<p>
+  <strong>Challenged:</strong>
+  <%= @performance.challenged %>
+</p>
+
+<p>
+  <strong>Scaled:</strong>
+  <%= @performance.scaled %>
+</p>
+
+<%= link_to 'Edit', edit_performance_path(@performance) %> |
+<%= link_to 'Back', performances_path %>
