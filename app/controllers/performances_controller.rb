@@ -4,7 +4,11 @@ class PerformancesController < ApplicationController
   # GET /performances
   # GET /performances.json
   def index
-    @performances = Performance.all
+    if (!params[:team_id].nil?)
+      @performances = Performance.where(team_id: params[:team_id])
+    else
+      @performances = Performance.all
+    end
   end
 
   # GET /performances/1
@@ -14,7 +18,7 @@ class PerformancesController < ApplicationController
 
   # GET /performances/new
   def new
-    @performance = Performance.new
+    @performance = Performance.new(performance_params)
   end
 
   # GET /performances/1/edit

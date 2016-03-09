@@ -14,23 +14,20 @@
     </tr>
   </thead>
 
+  <!-- so, ideally, you press on a team name and it either gives u the performance or prompts you to make one. But, due to a lack of time i will just make it take u to the performance list. !-->
   <tbody>
     <% @matches.each do |match| %>
       <tr>
         <td><%= match.number %></td>
         <td class="blue">
-          <% blueteam = "" %>
-          <% match.alliances["blue"]["teams"].each do |team| %>
-            <% blueteam += team[3..-1] + ", " %>
+          <% match.alliances["blue"]["teams"].each_with_index do |team, index| %>
+            <%= link_to team[3..-1].to_s, team_performances_path(Integer(team[3..-1])), class: "blue" %>
           <% end %> 
-          <%= blueteam[0..-3] %>
         </td>
         <td class="red">
-          <% redteam = "" %>
-          <% match.alliances["red"]["teams"].each do |team| %>
-            <% redteam += team[3..-1] + ", " %>
+          <% match.alliances["red"]["teams"].each_with_index do |team, index| %>
+            <%= link_to team[3..-1].to_s, team_performances_path(Integer(team[3..-1])), class: "red" %>
           <% end %> 
-          <%= redteam[0..-3] %>
         </td>
         <td class="green">
           <!-- todo: bold the winner !-->

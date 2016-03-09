@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217180557) do
+ActiveRecord::Schema.define(version: 20160309001317) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "event_key"
@@ -51,14 +51,13 @@ ActiveRecord::Schema.define(version: 20160217180557) do
   add_index "performances", ["match_id"], name: "index_performances_on_match_id"
   add_index "performances", ["team_id"], name: "index_performances_on_team_id"
 
-  create_table "teams", force: :cascade do |t|
+  create_table "teams", primary_key: "team_number", force: :cascade do |t|
     t.string   "nickname"
     t.string   "location"
-    t.integer  "team_number"
     t.string   "key"
     t.text     "images"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "events"
   end
 

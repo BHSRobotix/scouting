@@ -4,7 +4,7 @@
 require_relative './api.rb'
 require 'json'
 
-namespace :createDataFromTBA do
+namespace :loadData do
   
   task loadTeams: :environment do
   	#Rake.application.rake_require 'api.rb'
@@ -30,6 +30,7 @@ namespace :createDataFromTBA do
 
 	@matches.each do |match|
 		if match["comp_level"] == "qm"
+			#Create the match in the database
 			newMatch = Match.new();
 			newMatch.event_key = match["key"]
 			newMatch.comp_level = match["comp_level"]

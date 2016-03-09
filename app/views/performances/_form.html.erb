@@ -13,11 +13,12 @@
 
   <div class="field">
     <%= f.label :team_id %><br>
-    <%= f.text_field :team_id %>
+    
+    <%= f.collection_select :team_id, Team.all, :team_number, :team_number %>
   </div>
   <div class="field">
     <%= f.label :match_id %><br>
-    <%= f.text_field :match_id %>
+    <%= f.number_field :match_id %>
   </div>
   <div class="field">
     <%= f.label :auto_reach %><br>

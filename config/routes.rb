@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :teams
-  resources :matches
+  resources :teams do
+    resources :performances
+  end
+  
+  resources :matches do
+    resources :performances
+  end
+
   resources :performances
-root 'static_pages#index'
+
+  root 'static_pages#index'
 
 resources :performances
 

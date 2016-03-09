@@ -28,10 +28,12 @@
   </thead>
 
   <tbody>
+    <% if !@performances.nil? %>
+
     <% @performances.each do |performance| %>
       <tr>
-        <td><%= performance.team %></td>
-        <td><%= performance.match %></td>
+        <td><%= performance.team.team_number %></td>
+        <td><%= performance.match.number %></td>
         <td><%= performance.auto_reach %></td>
         <td><%= performance.auto_cross %></td>
         <td><%= performance.auto_defenses_crossed %></td>
@@ -53,9 +55,10 @@
         <td><%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Performance', new_performance_path %>
+<%= link_to 'New Performance', new_performance_path(:performance => {:team_id => params[:team_id]}) %>
