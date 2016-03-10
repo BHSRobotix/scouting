@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   resources :teams do
     resources :performances
   end
+
+  resources :users
+
+  resource :sessions
+
+  resources :admin
+
+  get 'admin/loadTeams' => 'admin#loadTeams'
+
   
   resources :matches do
     resources :performances

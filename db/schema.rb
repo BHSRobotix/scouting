@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309001317) do
+ActiveRecord::Schema.define(version: 20160309212913) do
 
-  create_table "matches", force: :cascade do |t|
+  create_table "matches", primary_key: "number", force: :cascade do |t|
     t.string   "event_key"
     t.string   "comp_level"
-    t.integer  "number"
     t.text     "alliances"
     t.text     "score_breakdown"
     t.text     "videos"
@@ -51,14 +50,31 @@ ActiveRecord::Schema.define(version: 20160309001317) do
   add_index "performances", ["match_id"], name: "index_performances_on_match_id"
   add_index "performances", ["team_id"], name: "index_performances_on_team_id"
 
+  create_table "table_users", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "teams", primary_key: "team_number", force: :cascade do |t|
     t.string   "nickname"
     t.string   "location"
     t.string   "key"
     t.text     "images"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.text     "events"
+    t.text     "driver_feedback"
+    t.boolean  "driverDidFoul"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

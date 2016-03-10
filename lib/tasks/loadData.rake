@@ -9,6 +9,8 @@ namespace :loadData do
   task loadTeams: :environment do
   	#Rake.application.rake_require 'api.rb'
   	
+  	Team.delete_all
+
   	api = TBA_API.new("frc2876", "scouting", "v2")
 
   	@apiteams = api.get_event_teams('2016nhgrs')

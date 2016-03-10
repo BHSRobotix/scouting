@@ -1,9 +1,13 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   # GET /matches
   # GET /matches.json
   def index
+    unless logged_in?
+        flash[:error] = "You must be logged in to use this"
+        redirect_to new_sessions_path
+      end
     @matches = Match.order("number")
   end
 
@@ -70,5 +74,12 @@ class MatchesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
       params.require(:match).permit(:event_key, :comp_level, :number, :alliances, :score_breakdown, :videos, :time)
+    end
+
+    def require_login
+      unless logged_in?
+        flash[:error] = "You must be logged in to use this"
+        redirect_to new_sessions_path
+      end
     end
 end
